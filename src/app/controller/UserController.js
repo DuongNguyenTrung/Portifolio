@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 class UserController {
   async getAll(req, res) {
     const users = await User.find();
-    res.json({username: users.username});
+    res.json(users.map(user=>user.username));
   }
   async getOne(req, res) {
     try {
